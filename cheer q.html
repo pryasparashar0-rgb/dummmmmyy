@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>For Honey 💛</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:linear-gradient(160deg,#fff4d6,#ffe0ec);color:#4a1f33;font-family:"Trebuchet MS",system-ui,sans-serif;display:flex;align-items:center;justify-content:center;padding:16px}
+.card{width:min(94vw,520px);background:#fff;border-radius:26px;padding:26px 20px;text-align:center;box-shadow:0 12px 32px rgba(255,92,138,.25)}
+.big{font-size:60px;display:block}
+h1{margin:6px 0;color:#ff5c8a;font-size:clamp(26px,7vw,34px)}
+p{font-size:clamp(16px,4.3vw,19px);line-height:1.5;margin:8px 0}
+button{font:inherit;font-weight:700;border:0;border-radius:999px;padding:13px 22px;margin:6px 4px;background:#ff5c8a;color:#fff;cursor:pointer}
+button.b2{background:#ffb703;color:#4a1f33}
+button.b3{background:#8ecae6;color:#4a1f33}
+#msg{min-height:70px;background:#fff0f5;border-radius:16px;padding:14px;margin:14px 0;font-size:clamp(16px,4.3vw,19px)}
+.bar{height:16px;background:#ffd6e3;border-radius:99px;overflow:hidden;margin:10px 0}
+#fill{height:100%;width:0;background:#ff5c8a;transition:width .15s}
+.foot{margin-top:16px;font-size:15px;opacity:.85}
+.h span{position:fixed;top:-30px;font-size:26px;animation:f 3s linear forwards;pointer-events:none}
+@keyframes f{to{transform:translateY(110vh) rotate(300deg)}}
+</style>
+</head>
+<body>
+<div class="card">
+  <span class="big" style="filter:hue-rotate(235deg) saturate(1.5)">🌹</span>
+  <h1>Hey Honey 💛</h1>
+  <p>I heard today was a rough one.<br>So I built you a tiny website to fix it. Press the buttons, dummy.</p>
+
+  <div id="msg">Tap below for a little smile 👇</div>
+  <button id="smile">Tap for a smile 😊</button>
+  <button class="b3" id="del">Delete stress 🗑️</button>
+
+  <div class="bar"><div id="fill"></div></div>
+  <p id="status"></p>
+
+  <p class="foot">One bad day does not decide how good you are. You are smart, strong, and way cooler than college deserves. If you want to talk, I'm here. If not, I'll just bring snacks. 🍫</p>
+</div>
+<div class="h" id="h"></div>
+<script>
+var lines=["You're doing better than you think. 💪","Even your bad days are cuter than most people's good days. 😌","College is just a small level. You're the main character. 🎮","Plot twist: you're going to be amazing at this. ✨","Breathe. Drink water. Smile at your phone like you love me. 😏","I believe in you more than I believe in Wi-Fi. 📶","If tomorrow is tough, I'll be your emotional support dummy. 🧸","Your smile is my favorite notification. 🔔"];
+var k=0,msg=document.getElementById("msg"),st=document.getElementById("status"),fill=document.getElementById("fill");
+function rain(){var h=document.getElementById("h");for(var n=0;n<28;n++){(function(n){setTimeout(function(){var e=document.createElement("span");e.textContent=["💖","💛","💙","💙"][n%4];e.style.left=Math.random()*95+"vw";h.appendChild(e);setTimeout(function(){e.remove()},3000)},n*90)})(n)}}
+document.getElementById("smile").onclick=function(){msg.textContent=lines[k++%lines.length]};
+document.getElementById("del").onclick=function(){var p=0;st.textContent="Deleting stress...";var t=setInterval(function(){p+=5;fill.style.width=p+"%";if(p>=100){clearInterval(t);st.textContent="Stress deleted. College blocked. 😎";rain()}},120)};
+</script>
+</body>
+</html>
